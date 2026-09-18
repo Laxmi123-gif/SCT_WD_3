@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MERN Quiz Challenge</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="logo">
+                    &lt;/&gt;
+                </div>
+
+                <div>
+                    <h2>MERN QUIZ</h2>
+                    <p>Test your web development skills</p>
+                </div>
+
+            </div>
+
+            <div class="question-counter">
+                <span id="currentQuestion">1</span>
+                <span class="small-text">/</span>
+                <span id="totalQuestions">10</span>
+            </div>
+
+        </header>
+
+
+        <!-- Progress -->
+        <div class="progress-section">
+
+            <div class="progress-info">
+                <span>Quiz Progress</span>
+                <span id="progressText">10%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Quiz -->
+        <main id="quizContainer" class="quiz-container">
+
+            <!-- Category -->
+            <div id="category" class="category">
+                REACT
+            </div>
+
+
+            <!-- Question -->
+            <h1 id="question">
+                Loading question...
+            </h1>
+
+
+            <!-- Hint -->
+            <p id="questionHint" class="question-hint">
+                Choose the correct answer.
+            </p>
+
+
+            <!-- Options -->
+            <div id="answers" class="answers"></div>
+
+
+            <!-- Fill Answer -->
+            <div id="fillContainer" class="fill-container hidden">
+
+                <input
+                    type="text"
+                    id="fillAnswer"
+                    placeholder="Type your answer..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- Feedback -->
+            <div id="feedback" class="feedback hidden"></div>
+
+
+            <!-- Navigation -->
+            <div class="navigation">
+
+                <button
+                    id="nextBtn"
+                    class="next-btn"
+                    disabled
+                >
+                    Check Answer
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </main>
+
+
+        <!-- Result -->
+        <section id="resultContainer" class="result-container hidden">
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <p class="result-label">
+                QUIZ COMPLETED
+            </p>
+
+            <h2>Well Done!</h2>
+
+            <p class="result-subtitle">
+                You completed the MERN Stack Quiz.
+            </p>
+
+
+            <div class="score-box">
+
+                <span>Your Score</span>
+
+                <strong>
+                    <span id="finalScore">0</span>
+                    /
+                    <span id="finalTotal">10</span>
+                </strong>
+
+            </div>
+
+
+            <p id="resultMessage" class="result-message">
+                Keep learning and improving!
+            </p>
+
+
+            <button id="restartBtn" class="restart-btn">
+                ↻ Play Again
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
