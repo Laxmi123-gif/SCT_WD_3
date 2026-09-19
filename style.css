@@ -1,886 +1,353 @@
+/* Remove default browser spacing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
+/* Main page */
 body {
-
-    font-family: "Inter", sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
 
     min-height: 100vh;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
-    background:
-        radial-gradient(
-            circle at top left,
-            #253b73,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at bottom right,
-            #402568,
-            transparent 35%
-        ),
-        #080b14;
-
-    color: #ffffff;
-
-    padding: 25px;
+    padding: 20px;
 }
 
 
-/* ==========================================
-   MAIN APP
-========================================== */
-
-.app {
-
-    width: 100%;
-
-    max-width: 950px;
-
-    background: rgba(17, 22, 36, 0.96);
-
-    border: 1px solid #293249;
-
-    border-radius: 24px;
-
-    padding: 35px;
-
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.5);
-
-}
-
-
-/* ==========================================
-   HEADER
-========================================== */
-
-.header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 30px;
-
-}
-
-
-.brand {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-}
-
-
-.logo {
-
-    width: 50px;
-
-    height: 50px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border-radius: 14px;
-
-    background: linear-gradient(
-        135deg,
-        #61dafb,
-        #8b5cf6
-    );
-
-    color: #ffffff;
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-}
-
-
-.brand h2 {
-
-    font-size: 19px;
-
-    letter-spacing: 1px;
-
-}
-
-
-.brand p {
-
-    color: #858da3;
-
-    font-size: 12px;
-
-    margin-top: 4px;
-
-}
-
-
-.question-counter {
-
-    padding: 10px 15px;
-
-    background: #1d2538;
-
-    border: 1px solid #303a54;
-
-    border-radius: 10px;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-}
-
-
-.small-text {
-
-    color: #737b91;
-
-    margin: 0 5px;
-
-}
-
-
-/* ==========================================
-   PROGRESS
-========================================== */
-
-.progress-section {
-
-    margin-bottom: 40px;
-
-}
-
-
-.progress-info {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #7f889f;
-
-    font-size: 12px;
-
-    margin-bottom: 9px;
-
-}
-
-
-#progressText {
-
-    color: #61dafb;
-
-    font-weight: 700;
-
-}
-
-
-.progress-bar {
-
-    width: 100%;
-
-    height: 7px;
-
-    background: #242b3d;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-}
-
-
-.progress {
-
-    width: 10%;
-
-    height: 100%;
-
-    border-radius: 20px;
-
-    background: linear-gradient(
-        90deg,
-        #61dafb,
-        #8b5cf6
-    );
-
-    transition: width 0.4s ease;
-
-}
-
-
-/* ==========================================
-   QUIZ
-========================================== */
+/* =========================
+   QUIZ CONTAINER
+   ========================= */
 
 .quiz-container {
+    width: 100%;
+    max-width: 650px;
 
-    padding: 10px 15px 20px;
+    background-color: white;
 
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 
-.category {
+/* =========================
+   HEADER
+   ========================= */
 
-    display: inline-flex;
+.header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    color: #4f46e5;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #666;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   QUESTION NUMBER + SCORE
+   ========================= */
+
+.progress-section {
+    display: flex;
+
+    justify-content: space-between;
 
     align-items: center;
-
-    padding: 8px 14px;
-
-    border-radius: 20px;
-
-    background: rgba(97, 218, 251, 0.1);
-
-    border: 1px solid rgba(97, 218, 251, 0.3);
-
-    color: #61dafb;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
 
     margin-bottom: 20px;
 
+    color: #555;
+
+    font-size: 15px;
 }
 
 
-#question {
+/* =========================
+   QUESTION BOX
+   ========================= */
 
-    max-width: 820px;
+.question-box {
+    background-color: #f8fafc;
 
-    font-size: 31px;
+    padding: 20px;
 
-    line-height: 1.35;
+    border-radius: 10px;
 
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 
+    border-left: 5px solid #4f46e5;
+}
+
+.question-box h2 {
+    color: #222;
+
+    font-size: 21px;
+
+    line-height: 1.5;
 }
 
 
-.question-hint {
+/* =========================
+   ANSWER BUTTONS
+   ========================= */
 
-    color: #788198;
-
-    font-size: 13px;
-
-    margin-bottom: 28px;
-
-}
-
-
-/* ==========================================
-   ANSWERS
-========================================== */
-
-.answers {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 14px;
-
-}
-
-
-.answer {
-
-    min-height: 75px;
-
+.answer-buttons {
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
-    gap: 14px;
+    gap: 12px;
+}
+
+
+/* Individual answer */
+.answer-button {
+    width: 100%;
 
     padding: 15px;
 
-    border-radius: 14px;
+    background-color: white;
 
-    background: #151b2b;
+    border: 2px solid #d1d5db;
 
-    border: 1px solid #2b344b;
+    border-radius: 8px;
 
-    color: #e7eaf2;
-
-    font-family: inherit;
-
-    font-size: 14px;
+    font-size: 16px;
 
     text-align: left;
 
     cursor: pointer;
 
-    transition: all 0.2s ease;
-
-}
-
-
-.answer:hover {
-
-    border-color: #61dafb;
-
-    background: #1a2235;
-
-    transform: translateY(-2px);
-
-}
-
-
-.option-number {
-
-    width: 34px;
-
-    height: 34px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border-radius: 9px;
-
-    background: #222a3e;
-
-    color: #8e97ad;
-
-    font-weight: 700;
-
-}
-
-
-.option-text {
-
-    flex: 1;
-
-}
-
-
-.option-arrow {
-
-    color: #5f6980;
-
-    font-size: 22px;
-
-}
-
-
-.answer.selected {
-
-    border-color: #61dafb;
-
-    background: rgba(97, 218, 251, 0.1);
-
-}
-
-
-.answer.selected .option-number {
-
-    background: #61dafb;
-
-    color: #081019;
-
-}
-
-
-.answer.correct {
-
-    border-color: #31d39a;
-
-    background: rgba(49, 211, 154, 0.1);
-
-    color: #68e2b7;
-
-}
-
-
-.answer.correct .option-number {
-
-    background: #31d39a;
-
-    color: #07140f;
-
-}
-
-
-.answer.wrong {
-
-    border-color: #ff5c70;
-
-    background: rgba(255, 92, 112, 0.1);
-
-    color: #ff8594;
-
-}
-
-
-.answer.wrong .option-number {
-
-    background: #ff5c70;
-
-    color: #21070b;
-
-}
-
-
-/* ==========================================
-   FILL INPUT
-========================================== */
-
-.fill-container {
-
-    margin-top: 10px;
-
-}
-
-
-.fill-container input {
-
-    width: 100%;
-
-    padding: 20px;
-
-    border-radius: 14px;
-
-    border: 1px solid #303a54;
-
-    background: #151b2b;
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    outline: none;
-
     transition: 0.2s;
-
 }
 
 
-.fill-container input:focus {
+/* When mouse moves over answer */
+.answer-button:hover {
+    background-color: #eef2ff;
 
-    border-color: #61dafb;
-
-    box-shadow:
-        0 0 0 3px rgba(97, 218, 251, 0.08);
-
+    border-color: #4f46e5;
 }
 
 
-.fill-container input::placeholder {
+/* =========================
+   CORRECT ANSWER
+   ========================= */
 
-    color: #626c82;
+.answer-button.correct {
+    background-color: #dcfce7;
 
+    border-color: #22c55e;
+
+    color: #166534;
 }
 
 
-/* ==========================================
-   FEEDBACK
-========================================== */
+/* =========================
+   WRONG ANSWER
+   ========================= */
 
-.feedback {
+.answer-button.wrong {
+    background-color: #fee2e2;
+
+    border-color: #ef4444;
+
+    color: #991b1b;
+}
+
+
+/* Disable answer buttons */
+.answer-button:disabled {
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   NEXT BUTTON
+   ========================= */
+
+.next-button {
+    width: 100%;
 
     margin-top: 20px;
 
-    padding: 15px 17px;
+    padding: 14px;
 
-    border-radius: 12px;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-}
-
-
-.correct-feedback {
-
-    background: rgba(49, 211, 154, 0.08);
-
-    border: 1px solid rgba(49, 211, 154, 0.3);
-
-    color: #68e2b7;
-
-}
-
-
-.wrong-feedback {
-
-    background: rgba(255, 92, 112, 0.08);
-
-    border: 1px solid rgba(255, 92, 112, 0.3);
-
-    color: #ff8594;
-
-}
-
-
-/* ==========================================
-   NAVIGATION
-========================================== */
-
-.navigation {
-
-    display: flex;
-
-    justify-content: flex-end;
-
-    margin-top: 30px;
-
-}
-
-
-.next-btn,
-.restart-btn {
-
-    border: none;
-
-    border-radius: 11px;
-
-    padding: 14px 22px;
-
-    background: linear-gradient(
-        135deg,
-        #61dafb,
-        #8b5cf6
-    );
+    background-color: #4f46e5;
 
     color: white;
 
-    font-family: inherit;
+    border: none;
 
-    font-size: 14px;
+    border-radius: 8px;
 
-    font-weight: 700;
+    font-size: 17px;
 
     cursor: pointer;
 
     transition: 0.2s;
-
 }
 
 
-.next-btn span {
-
-    margin-left: 8px;
-
-    font-size: 18px;
-
+/* Next button hover */
+.next-button:hover {
+    background-color: #4338ca;
 }
 
 
-.next-btn:hover:not(:disabled),
-.restart-btn:hover {
+/* =========================
+   RESULT BOX
+   ========================= */
 
-    transform: translateY(-2px);
+.result-box {
+    display: none;
 
-    box-shadow:
-        0 8px 25px rgba(97, 218, 251, 0.2);
-
-}
-
-
-.next-btn:disabled {
-
-    opacity: 0.35;
-
-    cursor: not-allowed;
-
-}
-
-
-/* ==========================================
-   RESULT
-========================================== */
-
-.result-container {
-
-    text-align: center;
-
-    padding: 45px 20px;
-
-}
-
-
-.result-icon {
-
-    width: 90px;
-
-    height: 90px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    border-radius: 50%;
-
-    background: rgba(49, 211, 154, 0.1);
-
-    border: 2px solid #31d39a;
-
-    color: #31d39a;
-
-    font-size: 42px;
-
-}
-
-
-.result-label {
-
-    color: #61dafb;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.result-container h2 {
-
-    font-size: 40px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.result-subtitle {
-
-    color: #7e879c;
-
-    font-size: 14px;
-
-}
-
-
-.score-box {
-
-    max-width: 300px;
-
-    margin: 30px auto 20px;
-
-    padding: 25px;
-
-    border-radius: 16px;
-
-    background: #151b2b;
-
-    border: 1px solid #303a54;
-
-}
-
-
-.score-box span {
-
-    color: #818a9f;
-
-    font-size: 13px;
-
-}
-
-
-.score-box strong {
-
-    display: block;
-
-    margin-top: 8px;
-
-    font-size: 45px;
-
-}
-
-
-.result-message {
+    width: 100%;
 
     max-width: 500px;
 
-    margin: 0 auto 25px;
+    background-color: white;
 
-    color: #858da2;
+    padding: 40px;
 
-    font-size: 14px;
+    border-radius: 15px;
 
-    line-height: 1.6;
+    text-align: center;
 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 
-/* ==========================================
-   HIDDEN
-========================================== */
+/* Result heading */
+.result-box h1 {
+    color: #4f46e5;
 
-.hidden {
+    font-size: 30px;
 
-    display: none !important;
-
+    margin-bottom: 20px;
 }
 
 
-/* ==========================================
-   MOBILE
-========================================== */
+/* Final score */
+.result-box p {
+    font-size: 22px;
 
-@media (max-width: 700px) {
+    color: #333;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   RESTART BUTTON
+   ========================= */
+
+#restart-button {
+    padding: 13px 30px;
+
+    background-color: #4f46e5;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+/* Restart hover */
+#restart-button:hover {
+    background-color: #4338ca;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 600px) {
 
     body {
-
-        padding: 10px;
-
-        align-items: flex-start;
-
-        padding-top: 20px;
-
+        padding: 15px;
     }
 
-
-    .app {
-
-        padding: 22px;
-
-        border-radius: 18px;
-
+    .quiz-container {
+        padding: 20px;
     }
 
-
-    .header {
-
-        align-items: flex-start;
-
-        gap: 15px;
-
-    }
-
-
-    .question-counter {
-
-        font-size: 13px;
-
-    }
-
-
-    #question {
-
+    .header h1 {
         font-size: 24px;
-
     }
 
-
-    .answers {
-
-        grid-template-columns: 1fr;
-
+    .header p {
+        font-size: 14px;
     }
 
-
-    .answer {
-
-        min-height: 65px;
-
+    .question-box h2 {
+        font-size: 18px;
     }
 
+    .answer-button {
+        font-size: 14px;
 
-    .navigation {
-
-        margin-top: 25px;
-
+        padding: 13px;
     }
 
-
-    .next-btn {
-
-        width: 100%;
-
+    .progress-section {
+        font-size: 13px;
     }
 
-
-    .result-container h2 {
-
-        font-size: 32px;
-
-    }
-
-}
-
-
-@media (max-width: 450px) {
-
-    .brand h2 {
-
-        font-size: 16px;
-
-    }
-
-
-    .brand p {
-
-        font-size: 10px;
-
-    }
-
-
-    .logo {
-
-        width: 42px;
-
-        height: 42px;
-
+    .next-button {
         font-size: 15px;
-
-    }
-
-
-    #question {
-
-        font-size: 21px;
-
-    }
-
-
-    .question-hint {
-
-        font-size: 12px;
-
     }
 
 }
 
+
+/* =========================
+   VERY SMALL SCREEN
+   ========================= */
+
+@media (max-width: 400px) {
+
+    .quiz-container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .question-box {
+        padding: 15px;
+    }
+
+    .question-box h2 {
+        font-size: 16px;
+    }
+
+}

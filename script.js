@@ -1,861 +1,220 @@
-
-
+// Quiz Questions
 const questions = [
+  {
+    question: "What is React mainly used for?",
+    answers: [
+      "Building user interfaces",
+      "Managing databases",
+      "Creating operating systems",
+      "Managing servers",
+    ],
+    correctAnswer: "Building user interfaces",
+  },
 
-    // Question 1
-    {
-        category: "React",
-        type: "single",
+  {
+    question: "Which hook is used to manage state in a React component?",
+    answers: ["useState", "useDatabase", "useServer", "useMongo"],
+    correctAnswer: "useState",
+  },
 
-        question: "Which hook is used to manage state in a React functional component?",
+  {
+    question: "Which hook is commonly used for side effects in React?",
+    answers: ["useEffect", "useData", "useMongo", "useServer"],
+    correctAnswer: "useEffect",
+  },
 
-        hint: "Think about the hook commonly used with a value and setter function.",
+  {
+    question: "What is JSX in React?",
+    answers: [
+      "A syntax that allows HTML-like code inside JavaScript",
+      "A database",
+      "A CSS framework",
+      "A backend server",
+    ],
+    correctAnswer: "A syntax that allows HTML-like code inside JavaScript",
+  },
 
-        options: [
-            "useEffect",
-            "useState",
-            "useContext",
-            "useRef"
-        ],
+  {
+    question: "What is MongoDB?",
+    answers: [
+      "A NoSQL database",
+      "A CSS library",
+      "A JavaScript framework",
+      "An operating system",
+    ],
+    correctAnswer: "A NoSQL database",
+  },
 
-        answer: "useState"
-    },
+  {
+    question: "How does MongoDB store data?",
+    answers: ["Documents", "HTML pages", "CSS files", "React components"],
+    correctAnswer: "Documents",
+  },
 
+  {
+    question: "Which format is commonly used by MongoDB documents?",
+    answers: ["BSON", "HTML", "CSS", "XML"],
+    correctAnswer: "BSON",
+  },
 
-    // Question 2
-    {
-        category: "React",
-        type: "single",
+  {
+    question: "What is a collection in MongoDB?",
+    answers: [
+      "A group of documents",
+      "A React component",
+      "A CSS class",
+      "A JavaScript function",
+    ],
+    correctAnswer: "A group of documents",
+  },
 
-        question: "What is JSX in React?",
+  {
+    question: "Which command is commonly used to install React packages?",
+    answers: ["npm install", "mongo install", "react start", "node create"],
+    correctAnswer: "npm install",
+  },
 
-        hint: "It allows you to write HTML-like syntax inside JavaScript.",
-
-        options: [
-            "A database",
-            "A CSS framework",
-            "A JavaScript syntax extension",
-            "A backend server"
-        ],
-
-        answer: "A JavaScript syntax extension"
-    },
-
-
-    // Question 3
-    {
-        category: "React",
-        type: "multi",
-
-        question: "Which of the following are commonly used React concepts?",
-
-        hint: "Select all the concepts that belong to React.",
-
-        options: [
-            "Components",
-            "Props",
-            "useState",
-            "MongoDB"
-        ],
-
-        answer: [
-            "Components",
-            "Props",
-            "useState"
-        ]
-    },
-
-
-    // Question 4
-    {
-        category: "MongoDB",
-        type: "single",
-
-        question: "What type of database is MongoDB?",
-
-        hint: "MongoDB stores data using documents.",
-
-        options: [
-            "Relational database",
-            "NoSQL database",
-            "Graph database",
-            "Spreadsheet database"
-        ],
-
-        answer: "NoSQL database"
-    },
-
-
-    // Question 5
-    {
-        category: "MongoDB",
-        type: "single",
-
-        question: "Which format is commonly used to represent MongoDB documents?",
-
-        hint: "Think about a JavaScript object-like structure.",
-
-        options: [
-            "JSON",
-            "HTML",
-            "CSS",
-            "XML only"
-        ],
-
-        answer: "JSON"
-    },
-
-
-    // Question 6
-    {
-        category: "Node.js",
-        type: "single",
-
-        question: "What is Node.js mainly used for?",
-
-        hint: "Node.js allows JavaScript to run outside the browser.",
-
-        options: [
-            "Creating database tables only",
-            "Running JavaScript on the server",
-            "Designing CSS",
-            "Creating HTML tags"
-        ],
-
-        answer: "Running JavaScript on the server"
-    },
-
-
-    // Question 7
-    {
-        category: "Express.js",
-        type: "single",
-
-        question: "Which HTTP method is commonly used to create new data through an API?",
-
-        hint: "Think about REST APIs and CRUD operations.",
-
-        options: [
-            "GET",
-            "POST",
-            "DELETE",
-            "OPTIONS"
-        ],
-
-        answer: "POST"
-    },
-
-
-    // Question 8
-    {
-        category: "JavaScript",
-        type: "fill",
-
-        question: "Which keyword is used to declare a variable that cannot be reassigned?",
-
-        hint: "It is commonly used when declaring React components and constants.",
-
-        answer: "const"
-    },
-
-
-    // Question 9
-    {
-        category: "MERN Stack",
-        type: "multi",
-
-        question: "Which technologies are part of the MERN stack?",
-
-        hint: "MERN stands for four technologies.",
-
-        options: [
-            "MongoDB",
-            "Express.js",
-            "React",
-            "Node.js"
-        ],
-
-        answer: [
-            "MongoDB",
-            "Express.js",
-            "React",
-            "Node.js"
-        ]
-    },
-
-
-    // Question 10
-    {
-        category: "React",
-        type: "single",
-
-        question: "Which React feature is commonly used to run side effects such as API calls?",
-
-        hint: "It starts with 'use'.",
-
-        options: [
-            "useState",
-            "useEffect",
-            "useProps",
-            "useAPI"
-        ],
-
-        answer: "useEffect"
-    }
-
+  {
+    question: "Which database is commonly used in a MERN stack application?",
+    answers: ["MongoDB", "Oracle", "SQLite", "Redis"],
+    correctAnswer: "MongoDB",
+  },
 ];
 
+// Get HTML elements
+const questionElement = document.getElementById("question");
 
-// ==========================================
-// VARIABLES
-// ==========================================
+const answerButtons = document.getElementById("answer-buttons");
 
-let currentIndex = 0;
+const nextButton = document.getElementById("next-button");
+
+const questionNumber = document.getElementById("question-number");
+
+const scoreElement = document.getElementById("score");
+
+const quizContainer = document.querySelector(".quiz-container");
+
+const resultBox = document.getElementById("result-box");
+
+const finalScore = document.getElementById("final-score");
+
+const restartButton = document.getElementById("restart-button");
+
+// Variables
+let currentQuestionIndex = 0;
 
 let score = 0;
 
-let selectedAnswers = [];
+// Start Quiz
+function startQuiz() {
+  currentQuestionIndex = 0;
 
-let questionAnswered = false;
+  score = 0;
 
+  scoreElement.innerText = "Score: 0";
 
-// ==========================================
-// GET HTML ELEMENTS
-// ==========================================
+  nextButton.style.display = "none";
 
-const currentQuestionElement =
-    document.getElementById("currentQuestion");
+  resultBox.style.display = "none";
 
-const totalQuestionsElement =
-    document.getElementById("totalQuestions");
+  quizContainer.style.display = "block";
 
-const progressElement =
-    document.getElementById("progress");
-
-const progressText =
-    document.getElementById("progressText");
-
-const categoryElement =
-    document.getElementById("category");
-
-const questionElement =
-    document.getElementById("question");
-
-const questionHint =
-    document.getElementById("questionHint");
-
-const answersElement =
-    document.getElementById("answers");
-
-const fillContainer =
-    document.getElementById("fillContainer");
-
-const fillAnswer =
-    document.getElementById("fillAnswer");
-
-const feedbackElement =
-    document.getElementById("feedback");
-
-const nextButton =
-    document.getElementById("nextBtn");
-
-const quizContainer =
-    document.getElementById("quizContainer");
-
-const resultContainer =
-    document.getElementById("resultContainer");
-
-const finalScore =
-    document.getElementById("finalScore");
-
-const finalTotal =
-    document.getElementById("finalTotal");
-
-const resultMessage =
-    document.getElementById("resultMessage");
-
-const restartButton =
-    document.getElementById("restartBtn");
-
-
-// ==========================================
-// INITIAL SETUP
-// ==========================================
-
-totalQuestionsElement.textContent = questions.length;
-
-finalTotal.textContent = questions.length;
-
-
-// ==========================================
-// LOAD QUESTION
-// ==========================================
-
-function loadQuestion() {
-
-    const currentQuestion = questions[currentIndex];
-
-    questionAnswered = false;
-
-    selectedAnswers = [];
-
-
-    // Question number
-    currentQuestionElement.textContent =
-        currentIndex + 1;
-
-
-    // Progress
-    const progress =
-        ((currentIndex + 1) / questions.length) * 100;
-
-    progressElement.style.width =
-        progress + "%";
-
-    progressText.textContent =
-        Math.round(progress) + "%";
-
-
-    // Category
-    categoryElement.textContent =
-        currentQuestion.category;
-
-
-    // Question
-    questionElement.textContent =
-        currentQuestion.question;
-
-
-    // Hint
-    questionHint.textContent =
-        currentQuestion.hint;
-
-
-    // Clear old answers
-    answersElement.innerHTML = "";
-
-
-    // Clear feedback
-    feedbackElement.textContent = "";
-
-    feedbackElement.classList.add("hidden");
-
-
-    // Disable button
-    nextButton.disabled = true;
-
-    nextButton.innerHTML =
-        'Check Answer <span>→</span>';
-
-
-    // Fill question
-    if (currentQuestion.type === "fill") {
-
-        fillContainer.classList.remove("hidden");
-
-        fillAnswer.value = "";
-
-        fillAnswer.disabled = false;
-
-        fillAnswer.focus();
-
-    }
-
-    // Multiple/single choice
-    else {
-
-        fillContainer.classList.add("hidden");
-
-        fillAnswer.value = "";
-
-        createOptions(currentQuestion);
-    }
+  showQuestion();
 }
 
+// Display Question
+function showQuestion() {
+  // Remove old answer buttons
+  answerButtons.innerHTML = "";
 
-// ==========================================
-// CREATE OPTIONS
-// ==========================================
+  // Get current question
+  const currentQuestion = questions[currentQuestionIndex];
 
-function createOptions(currentQuestion) {
+  // Display question
+  questionElement.innerText = currentQuestion.question;
 
-    currentQuestion.options.forEach(function (option, index) {
+  // Display question number
+  questionNumber.innerText =
+    "Question " + (currentQuestionIndex + 1) + " of " + questions.length;
 
-        const button =
-            document.createElement("button");
+  // Create buttons for answers
+  currentQuestion.answers.forEach(function (answer) {
+    const button = document.createElement("button");
 
-        button.classList.add("answer");
+    button.innerText = answer;
 
+    button.classList.add("answer-button");
 
-        // Option number
-        const number =
-            document.createElement("span");
-
-        number.classList.add("option-number");
-
-        number.textContent =
-            String.fromCharCode(65 + index);
-
-
-        // Option text
-        const text =
-            document.createElement("span");
-
-        text.classList.add("option-text");
-
-        text.textContent = option;
-
-
-        // Arrow
-        const arrow =
-            document.createElement("span");
-
-        arrow.classList.add("option-arrow");
-
-        arrow.textContent = "›";
-
-
-        button.appendChild(number);
-
-        button.appendChild(text);
-
-        button.appendChild(arrow);
-
-
-        // Click
-        button.addEventListener("click", function () {
-
-            selectAnswer(
-                option,
-                button,
-                currentQuestion
-            );
-
-        });
-
-
-        answersElement.appendChild(button);
-
+    // When user clicks answer
+    button.addEventListener("click", function () {
+      selectAnswer(button, answer);
     });
+
+    answerButtons.appendChild(button);
+  });
 }
 
+// Select Answer
+function selectAnswer(selectedButton, selectedAnswer) {
+  const currentQuestion = questions[currentQuestionIndex];
 
-// ==========================================
-// SELECT ANSWER
-// ==========================================
+  // Get all answer buttons
+  const buttons = answerButtons.children;
 
-function selectAnswer(
-    option,
-    button,
-    currentQuestion
-) {
+  // Disable all buttons
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = true;
+  }
 
-    if (questionAnswered) {
-        return;
+  // Check answer
+  if (selectedAnswer === currentQuestion.correctAnswer) {
+    selectedButton.classList.add("correct");
+
+    score++;
+
+    scoreElement.innerText = "Score: " + score;
+  } else {
+    selectedButton.classList.add("wrong");
+
+    // Show correct answer
+    for (let i = 0; i < buttons.length; i++) {
+      if (buttons[i].innerText === currentQuestion.correctAnswer) {
+        buttons[i].classList.add("correct");
+      }
     }
+  }
 
-
-    // Single choice
-    if (currentQuestion.type === "single") {
-
-        const buttons =
-            document.querySelectorAll(".answer");
-
-
-        buttons.forEach(function (btn) {
-
-            btn.classList.remove("selected");
-
-        });
-
-
-        button.classList.add("selected");
-
-
-        selectedAnswers = [option];
-
-
-        nextButton.disabled = false;
-
-    }
-
-
-    // Multiple choice
-    else if (currentQuestion.type === "multi") {
-
-        button.classList.toggle("selected");
-
-
-        if (selectedAnswers.includes(option)) {
-
-            selectedAnswers =
-                selectedAnswers.filter(function (item) {
-
-                    return item !== option;
-
-                });
-
-        }
-
-        else {
-
-            selectedAnswers.push(option);
-
-        }
-
-
-        nextButton.disabled =
-            selectedAnswers.length === 0;
-    }
-
+  // Show Next button
+  nextButton.style.display = "block";
 }
 
-
-// ==========================================
-// FILL ANSWER
-// ==========================================
-
-fillAnswer.addEventListener(
-    "input",
-    function () {
-
-        if (!questionAnswered) {
-
-            nextButton.disabled =
-                fillAnswer.value.trim() === "";
-
-        }
-
-    }
-);
-
-
-// ==========================================
-// CHECK ANSWER
-// ==========================================
-
-function checkAnswer() {
-
-    const currentQuestion =
-        questions[currentIndex];
-
-    let isCorrect = false;
-
-
-    // --------------------------------------
-    // SINGLE CHOICE
-    // --------------------------------------
-
-    if (currentQuestion.type === "single") {
-
-        isCorrect =
-            selectedAnswers[0] === currentQuestion.answer;
-
-
-        const buttons =
-            document.querySelectorAll(".answer");
-
-
-        buttons.forEach(function (button) {
-
-            button.disabled = true;
-
-
-            const text =
-                button.querySelector(".option-text").textContent;
-
-
-            // Correct answer
-            if (text === currentQuestion.answer) {
-
-                button.classList.add("correct");
-
-            }
-
-
-            // Wrong selected answer
-            if (
-                button.classList.contains("selected") &&
-                text !== currentQuestion.answer
-            ) {
-
-                button.classList.add("wrong");
-
-            }
-
-        });
-
-    }
-
-
-    // --------------------------------------
-    // MULTIPLE CHOICE
-    // --------------------------------------
-
-    else if (currentQuestion.type === "multi") {
-
-        const correctAnswers =
-            currentQuestion.answer;
-
-
-        const selectedSorted =
-            [...selectedAnswers].sort();
-
-
-        const correctSorted =
-            [...correctAnswers].sort();
-
-
-        isCorrect =
-            JSON.stringify(selectedSorted) ===
-            JSON.stringify(correctSorted);
-
-
-        const buttons =
-            document.querySelectorAll(".answer");
-
-
-        buttons.forEach(function (button) {
-
-            button.disabled = true;
-
-
-            const text =
-                button.querySelector(".option-text").textContent;
-
-
-            // Correct options
-            if (correctAnswers.includes(text)) {
-
-                button.classList.add("correct");
-
-            }
-
-
-            // Incorrect selected option
-            if (
-                button.classList.contains("selected") &&
-                !correctAnswers.includes(text)
-            ) {
-
-                button.classList.add("wrong");
-
-            }
-
-        });
-
-    }
-
-
-    // --------------------------------------
-    // FILL IN THE BLANK
-    // --------------------------------------
-
-    else if (currentQuestion.type === "fill") {
-
-        const userAnswer =
-            fillAnswer.value.trim().toLowerCase();
-
-
-        const correctAnswer =
-            currentQuestion.answer.toLowerCase();
-
-
-        isCorrect =
-            userAnswer === correctAnswer;
-
-
-        fillAnswer.disabled = true;
-
-    }
-
-
-    // --------------------------------------
-    // UPDATE SCORE
-    // --------------------------------------
-
-    if (isCorrect) {
-
-        score++;
-
-        feedbackElement.textContent =
-            "✓ Correct! Great job.";
-
-        feedbackElement.className =
-            "feedback correct-feedback";
-
-    }
-
-    else {
-
-        feedbackElement.textContent =
-            "✕ Not quite. Correct answer: " +
-            getCorrectAnswer(currentQuestion);
-
-        feedbackElement.className =
-            "feedback wrong-feedback";
-
-    }
-
-
-    feedbackElement.classList.remove("hidden");
-
-
-    questionAnswered = true;
-
-
-    nextButton.disabled = false;
-
-
-    // Last question
-    if (currentIndex === questions.length - 1) {
-
-        nextButton.innerHTML =
-            'View Result <span>→</span>';
-
-    }
-
-    else {
-
-        nextButton.innerHTML =
-            'Next Question <span>→</span>';
-
-    }
-
-}
-
-
-// ==========================================
-// GET CORRECT ANSWER
-// ==========================================
-
-function getCorrectAnswer(question) {
-
-    if (Array.isArray(question.answer)) {
-
-        return question.answer.join(", ");
-
-    }
-
-    return question.answer;
-}
-
-
-// ==========================================
-// NEXT BUTTON
-// ==========================================
-
-nextButton.addEventListener(
-    "click",
-    function () {
-
-        // First click = check answer
-        if (!questionAnswered) {
-
-            checkAnswer();
-
-            return;
-        }
-
-
-        // Last question
-        if (currentIndex === questions.length - 1) {
-
-            showResult();
-
-            return;
-        }
-
-
-        // Move to next question
-        currentIndex++;
-
-        loadQuestion();
-
-    }
-);
-
-
-// ==========================================
-// SHOW RESULT
-// ==========================================
-
+// Next Question
+nextButton.addEventListener("click", function () {
+  currentQuestionIndex++;
+
+  // Check if questions are remaining
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+
+    nextButton.style.display = "none";
+  } else {
+    showResult();
+  }
+});
+
+// Show Result
 function showResult() {
+  quizContainer.style.display = "none";
 
-    quizContainer.classList.add("hidden");
+  resultBox.style.display = "block";
 
-    resultContainer.classList.remove("hidden");
-
-
-    finalScore.textContent = score;
-
-
-    const percentage =
-        (score / questions.length) * 100;
-
-
-    if (percentage === 100) {
-
-        resultMessage.textContent =
-            "Perfect score! You have a strong understanding of MERN concepts.";
-
-    }
-
-    else if (percentage >= 80) {
-
-        resultMessage.textContent =
-            "Excellent work! Keep practicing advanced MERN concepts.";
-
-    }
-
-    else if (percentage >= 60) {
-
-        resultMessage.textContent =
-            "Good job! Continue practicing React, Node.js and MongoDB.";
-
-    }
-
-    else {
-
-        resultMessage.textContent =
-            "Keep learning! Practice the MERN fundamentals and try again.";
-
-    }
-
+  finalScore.innerText = "Your Score: " + score + " / " + questions.length;
 }
 
+// Restart Quiz
+restartButton.addEventListener("click", function () {
+  startQuiz();
+});
 
-// ==========================================
-// RESTART QUIZ
-// ==========================================
-
-restartButton.addEventListener(
-    "click",
-    function () {
-
-        currentIndex = 0;
-
-        score = 0;
-
-        selectedAnswers = [];
-
-        questionAnswered = false;
-
-
-        quizContainer.classList.remove("hidden");
-
-        resultContainer.classList.add("hidden");
-
-
-        loadQuestion();
-
-    }
-);
-
-
-// ==========================================
-// START QUIZ
-// ==========================================
-
-loadQuestion();
-
+// Start the quiz when page loads
+startQuiz();
